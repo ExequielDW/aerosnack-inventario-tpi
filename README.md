@@ -82,3 +82,37 @@ Detalle en [`docs/indicadores-de-control.md`](docs/indicadores-de-control.md).
 
 Las reglas completas están en [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+---
+
+## Declaración de Uso de IA
+
+**Transparencia.** El grupo utilizó asistentes de inteligencia artificial generativa en la elaboración de este TPI.
+La IA se usó como herramienta de apoyo; las decisiones de diseño, la verificación de la coherencia entre entregas y la responsabilidad
+intelectual sobre el contenido son del grupo.
+
+**Herramientas utilizadas**
+
+- **Claude (Anthropic):** análisis de consignas y de coherencia entre entregas, borradores de documentación, generación del diagrama BPMN y plan de ejecución.
+- **OpenCode** (agente de código) con el modelo GLM-5.3-Flash Free: ejecución de los comandos Git y GitHub descriptos en el plan.
+
+### Prompts utilizados y control humano
+
+| N.º | Prompt (resumen) | Por qué se formuló así | Resultado de la IA | Verificación y corrección humana |
+|---|---|---|---|---|
+| 1 | Se pidió leer las consignas de la Entrega 4 y la rúbrica adicional, y revisar las Entregas 1, 2 y 3 antes de resolver nada. | Evitar contradicciones con lo ya entregado y con los datos de AeroSnack S.A. | Un cruce entre entregas que detectó que las tres historias de usuario no estaban definidas en ninguna entrega, e inconsistencias de formato (nombre del tutor, numeración de figuras y tablas, un error de redacción en la Entrega 3). | La IA detectó inconsistencias entre las Entregas 1 a 3: el nombre del docente tutor figuraba con dos formatos distintos, las figuras y tablas repetían numeración entre entregas y había un error de redacción en la conclusión de la Entrega 3. Los PDF de este repositorio son las versiones tal como se presentaron; las correcciones se incorporan en el documento final consolidado. |
+| 2 | Se presentaron dos procesos candidatos (reposición de insumos o retiro de producto) para el BPMN. | Elegir un proceso que el módulo automatice y que ya estuviera descripto en el flujo de datos de la Entrega 3. | Una propuesta de proceso con Pools, Lanes y compuertas de excepción. | El grupo decidió, entre dos procesos candidatos, modelar la reposición de insumos. |
+| 3 | Se pidió generar el diagrama BPMN con la notación estándar. | Obtener un diagrama con Pools, Lanes y compuertas, alineado con el organigrama y el diccionario de datos. | Un diagrama generado mediante un script. | La IA propuso las Lanes y los estados de la orden a partir del organigrama de la Entrega 3 y del diccionario de datos. |
+| 4 | Se informó que las historias de usuario no existían y se pidió una propuesta. | Que cada historia derive de una meta cuantitativa de la Entrega 2. | Tres historias en formato formal con criterios de aceptación. | La IA derivó cada historia de una meta cuantitativa de la Entrega 2 (HU-01 de M1 y M2, HU-02 de M4 y HU-03 de M3), porque las historias no constaban en ninguna entrega previa. |
+| 5 | Se delegó la elección del tablero ágil en una recomendación. | Decidir con criterio técnico entre GitHub Projects y Jira. | La recomendación de GitHub Projects por su integración con issues y Pull Requests. | El grupo delegó la elección en una recomendación de la IA, que propuso GitHub Projects por integrarse con los issues y los Pull Requests del mismo repositorio, sin una herramienta externa como Jira. El grupo adoptó esa recomendación. |
+| 6 | Se pidió el plan de ejecución de Git y GitHub en formato Markdown, para ejecutarlo con OpenCode. | Automatizar tareas repetitivas con comandos revisables. | Un runbook con comandos paso a paso. | La ejecución de los comandos se hizo con OpenCode (modelo GLM-5.3-Flash Free). El grupo supervisó el proceso: cada comando de publicación (push, issues, tablero y Pull Requests) se mostró y se aprobó antes de ejecutarse. Las revisiones de pares quedan registradas en cada Pull Request y las realiza Ana Laura desde su propia cuenta. |
+
+### Limitaciones detectadas en los resultados de la IA
+
+- La consigna de la Entrega 4 habla de tres historias de usuario "previamente definidas", pero no constaban en ninguna entrega; la IA lo detectó y propuso las historias, que el grupo debió adoptar como propias.
+- El primer borrador del diagrama BPMN tenía texto desbordado y flechas de mensaje mal dibujadas, y se corrigió antes de usarlo.
+- Un borrador de esta misma declaración, redactado por el agente, daba por hechas verificaciones del grupo que no estaban registradas; el grupo lo detectó y lo reescribió con lo que realmente ocurrió.
+- Los comandos de `gh` no se habían probado contra GitHub antes de ejecutarlos y se verificaron durante la ejecución.
+
+### Responsabilidad intelectual
+
+El grupo comprende y puede defender cada decisión, diagrama y herramienta de este trabajo, y asume la responsabilidad por su veracidad y coherencia conceptual.
