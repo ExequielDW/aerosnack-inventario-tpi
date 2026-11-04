@@ -79,6 +79,7 @@ Detalle en [`docs/indicadores-de-control.md`](docs/indicadores-de-control.md).
 - `main` es la rama estable; los cambios entran por Pull Request desde ramas secundarias (`docs/…`, `feat/…`, `fix/…`).
 - Commits en formato Conventional Commits, en español.
 - Cada Pull Request requiere la revisión de otro integrante.
+- Al fusionar un Pull Request, su rama se elimina del repositorio (`--delete-branch`): la lista de ramas muestra solo las activas, y la historia de cada rama queda en el Pull Request fusionado y en el historial de `main`.
 
 Las reglas completas están en [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
